@@ -61,15 +61,15 @@ public class SchedulerBootstrap extends AbstractLifecycleScheduler<Schedule> {
 
     public void startup(@Observes AfterStartupProccess event) {
         proccessEvent();
-        addContexts();
+        //addContexts();
     }
 
     public void shutdown(@Observes Shutdown event) {
-    	removeContexts();
+    	//removeContexts();
     }
     
 	public void addContexts() {
-		RequestContext requestContext = Beans.getReference(RequestContext.class);
+		RequestContext requestContext = Beans.getReference(ConcurrentRequestContext.class);
 		SessionContext sessionContext = Beans.getReference(SessionContext.class);
 		ViewContext viewContext = Beans.getReference(ViewContext.class);
 		ConversationContext conversationContext = Beans.getReference(ConversationContext.class);
